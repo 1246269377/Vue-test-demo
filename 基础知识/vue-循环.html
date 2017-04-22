@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="../vue.js"></script>
+	</head>
+
+	<body>
+
+		<div id="app">
+			<input type="text" v-model="message" /><br />
+			<input type="text" v-model="message3.a" /><br />
+			{{message}}<br />
+			{{ message1 }}<br />
+			{{ message2[1] }}<br />
+			{{ message3.c }}<br />
+			
+			<ul>
+			<li v-for="(value,index) in message2">
+				{{value}} {{index}}
+			</li>
+			</ul>
+			<hr />
+			<ul>
+				<li v-for="(value,key,index) in message3">
+					{{key}}:{{value}} {{index}}
+				</li>
+			</ul>
+		</div>
+
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					xiao:'一个谜一样的世界！',
+					message: 'Hello Vue!',
+					message1: 123,
+					message2: ["apple","banana","pear","orange"],
+					message3: {a:"apple",b:"banana",c:"pear",d:"orange"},
+				}
+			})
+		</script>
+	</body>
+
+</html>

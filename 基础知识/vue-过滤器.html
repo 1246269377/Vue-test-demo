@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../vue.js" ></script>
+		<script>
+			window.onload=function(){
+				new Vue({
+					el:"#box",
+					data:{
+						msg:"abc"
+					},
+					methods:{
+						
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			{{'sds'|uppercase}}          <!--过滤器，{{msg|filer A|filter B}},vue2.0貌似失效-->
+		</div>
+	</body>
+</html>

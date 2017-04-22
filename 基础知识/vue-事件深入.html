@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../vue.js"></script>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: "#box",
+					data: {
+
+					},
+					methods: {
+						show: function(ev) {
+							alert(ev.clientX);
+							//ev.cancelBubble = true; //阻止事件冒泡
+							//ev.preventDefault = true;  //阻止默认行为
+						},
+						show2: function() {
+							alert("2")
+						}
+					}
+				});
+				
+				new Vue({
+					el:"#box2",
+					data:{
+						
+					},
+					methods:{
+						show:function(ev){
+							alert(ev.keyCode);
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<div @click="show2()" style="width: 200px; height: 200px; background: yellow;">
+				点击弹出2<br />
+				<!--使用    @ 来代替v-on:
+					事件.stop————>阻止事件冒泡
+					事件.prevent————>阻止默认行为
+				-->
+				<input type="button" value="测试冒泡按钮" @click.stop="show($event)"/><br />
+				<input type="button" value="测试阻止默认行为" @contextmenu.prevent="show($event)"/><br />
+			</div>
+		</div>
+		
+		<div id="box2">
+			<input type="text" @keydown="show($event)" />
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>生命周期一</title>
+		<script type="text/javascript" src="../vue.js" ></script>
+		<script type="text/javascript" src="../vue-resource.js" ></script>
+		<script>
+			window.onload=function(){
+				var vm=new Vue({
+					el:"#box",
+					data:{
+						me:"肖小波"
+					},
+					methods:{
+						
+					},
+					created:function(){
+						alert("实例已经创建,数据能够获取"+this.me);
+					},
+					beforeCompile:function(){       //beforeCompile在vue2.0中已经被取消
+						alert("编译之前");
+					},
+					compiled:function(){            //compiled在vue2.0中已经被取消
+						alert("编译之后");
+					},
+					ready:function(){
+						alert("插入到文档中了");        //ready在vue2.0中已经被取消
+					},
+					beforeDestroy:function(){
+						alert("销毁之前");
+					},
+					destroyed:function(){
+						alert("销毁之后");
+					}
+				});
+				
+				//点击页面销毁vue对象
+				document.onclick=function(){
+					vm.$destroy;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

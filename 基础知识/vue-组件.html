@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>百度搜索接口（vue.js）</title>
+		<script src="../vue.js"></script>
+		<script>
+			Vue.component("my-abc",{
+				template:"#aaa"
+			})
+
+			window.onload = function() {
+				new Vue({
+					el: '#box',
+					data: {
+						msg: 'welcome vue2.0'
+					}
+				});
+			};
+		</script>
+	</head>
+
+	<body>
+		<template id="aaa">
+			<div>
+				<h3>我是1组件</h3>
+				<strong>我是1加粗标签</strong>
+			</div>
+		</template>
+		<div id="box">
+			<my-abc></my-abc>
+			{{msg}}
+		</div>
+	</body>
+
+</html>

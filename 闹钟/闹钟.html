@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>闹钟</title>
+		<script type="text/javascript" src="../vue.js"></script>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: "#box",
+					data: {
+						time1: 3600,
+						run: false,
+						Interval: null
+					},
+					methods: {
+						begain: function() {
+							if(this.run == false) {
+								this.run = true;
+								this.Interval=setInterval(this.update, 1000);
+							}
+						},
+						update: function() {
+							this.time1 = parseInt(this.time1) - 1;
+							console.log(this.Interval)
+							if (this.time1<=0) {
+								clearInterval(this.Interval);
+								document.getElementById("audio").play();
+							}
+						}
+					}
+				});
+			}
+		</script>
+		<style>
+			#box{
+				width: 400px;
+				height: 200px;
+				margin: 300px auto;
+			}
+			#box input{
+				font-size: 18px;
+				display: block;
+				margin: 30px auto;
+			}
+			.label{
+				text-align: center;
+			}
+			#box audio{
+				display: block;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="button" value="开始计时" @click="begain()"/>
+			<div class="label">剩余时间:{{time1}},{{run}}</div>
+
+			<audio id="audio" controls="controls">
+				<source src="小魂、阿杰 - 再起荣耀.mp3" type="audio/mpeg"> Your browser does not support the audio tag.
+			</audio>
+		</div>
+	</body>
+
+</html>

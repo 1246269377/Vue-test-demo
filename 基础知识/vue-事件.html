@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../vue.js"></script>
+
+	</head>
+
+	<body>
+		<div id="app1">
+			<button v-on:click="add()">添加xiao</button>
+			<button v-on:mouseover="add()">别碰</button>
+			<button v-on:dblclick="add()">请双击</button>
+			<ul>
+				<li v-for="value in message2">
+					{{value}}
+				</li>
+			</ul>
+			<br>
+			<button v-on:click="theDivShow=!theDivShow">点击显示或消失</button>
+			<div style="width: 100px;height: 100px;background: red;" v-show="theDivShow">
+				
+			</div>
+		</div>
+
+		<script>
+			var app = new Vue({
+				el: '#app1',
+				data: {
+					theDivShow:'true',
+					xiao: '一个谜一样的世界！',
+					message2: ["apple", "banana", "pear", "orange"],
+					message3: {
+						a: "apple",
+						b: "banana",
+						c: "pear",
+						d: "orange"
+					},
+				},
+				methods: {
+					add : function() {
+						if (this.message2[this.message2.length-1]=="xiao") {
+							alert("what are you 弄啥嘞");
+							return;
+						}
+						this.message2.push("xiao");
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>
