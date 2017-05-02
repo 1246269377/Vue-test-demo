@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script type="text/javascript" src="vue.js" ></script>
-		<script type="text/javascript" src="vue-resource.js" ></script>
-	    <script>
-	    	window.onload=function(){
-	    		var vm = new Vue({
-	    			el:"#box",
-	    			data:{
-	    				arr:["apple","banana","pear"]
-	    			},
-	    			methods:{
-	    				add:function(){
-	    					this.arr.push("tomato");
-	    				},
-	    				ass:function(vaa){
-	    					return vaa;
-	    				}
-	    			}
-	    		});
-	    		
-	    		
-	    	}
-	    </script>
+		<script type="text/javascript" src="vue.js"></script>
+		<script type="text/javascript" src="vue-resource.js"></script>
+		<script>
+			
+			window.onload = function() {
+				new Vue({
+					el: "#box",
+					data:{
+						msg:'hello!'
+					},
+					methods:{
+						change(){
+							alert("自定义成功！");
+						}
+					}
+				});
+			};
+		</script>
 	</head>
+
 	<body>
 		<div id="box">
-			<ul>
-				<button @click="add">添加</button>
-				<li v-for="val,index in arr">
-					{{val}},{{index}},{{ass(12)}}
-				</li>
-			</ul>
+			<input type="text" @keyup.alt="change"/>
 		</div>
 	</body>
+
 </html>
